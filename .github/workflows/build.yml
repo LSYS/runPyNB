@@ -30,7 +30,7 @@ jobs:
           mypy runpynb/runpynb.py --ignore-missing-imports
           python -m pyflakes runpynb/runpynb.py
           python -m pyflakes runpynb/scripts/runpynb
-          python -m pyflakes tests/tests_runpynb.py
+          python -m pyflakes tests/test_runpynb.py
           black runpynb/* -l 95
           black runpynb/scripts/runpynb -l 95
           black tests/* -l 95
