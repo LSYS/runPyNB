@@ -1,0 +1,5 @@
+black
+pytest
+pyflakes
+coverage
+mypy
