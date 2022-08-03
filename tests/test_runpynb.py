@@ -19,7 +19,7 @@ def test_run_notebooks():
     assert "running notebook" in stdout.lower()
     assert "done" in stdout.lower()
 
-    # notebook has cell that takes 5 second but timeout=1
+    # notebook has cell that takes 3 second but timeout=1
     # should fail with "Cell timeout error with timeout3.ipynb."
     with io.StringIO() as output:
         with redirect_stdout(output):
@@ -51,7 +51,7 @@ def test_run_notebooks():
     assert "done" in stdout.lower()
     assert "error executing" in stdout.lower()
 
-    # test multiple notebooks
+    # test multiple notebooks as a sequence/pipeline
     # first should run and second should fail
     with pytest.raises(SystemExit) as info:
         run_notebooks(notebooks=[hello_nb, error_nb], assequence=True)
