@@ -52,21 +52,22 @@ PARSER.add_argument(
 ARGS = PARSER.parse_args()
 
 
-print_or_quiet(f"{ARGS=}")
+print_or_quiet(f"{ARGS=}", quiet=ARGS.quiet)
 start_time = datetime.now()
-print_or_quiet(f"\nStart time: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+print_or_quiet(f"\nStart time: {start_time.strftime('%Y-%m-%d %H:%M:%S')}", quiet=ARGS.quiet)
 
-print_or_quiet("~~~~~~~~~~~~~~~~~~~~~~~~~")
+print_or_quiet("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", quiet=ARGS.quiet)
 run_notebooks(
     notebooks=ARGS.notebooks,
     timeout=ARGS.timeout,
     ver=ARGS.version,
     assequence=ARGS.sequence,
     output=ARGS.output,
+    quiet=ARGS.quiet,
 )
 
 
-print_or_quiet(f"End time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+print_or_quiet(f"End time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", quiet=ARGS.quiet)
 elapsed_time = datetime.now() - start_time
 elapsed_time = elapsed_time - timedelta(microseconds=elapsed_time.microseconds)
-print_or_quiet(f"Elaped time: {elapsed_time} (hh:mm:ss)")
+print_or_quiet(f"Elapsed time: {elapsed_time} (hh:mm:ss)", quiet=ARGS.quiet)

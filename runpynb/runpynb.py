@@ -16,6 +16,7 @@ def run_notebooks(
     ver: int = None,
     assequence: bool = False,
     output: bool = False,
+    quiet: bool = False,
 ) -> None:
     """
     Takes a list of Jupyter notebooks and execute one by one.
@@ -44,6 +45,10 @@ def run_notebooks(
             be overwritten.
             (Default = False)
 
+        quiet (bool)
+                        If True, be quiet and suppress printing of messages.
+                        (Default = False)
+
     Returns
     -------
     None
@@ -62,11 +67,11 @@ def run_notebooks(
                 nb = nbformat.read(f, nbformat.NO_CONVERT)
 
             ep = ExecutePreprocessor(timeout=timeout, kernel_name="python3")
-            print_or_quiet(f"Running notebook {ix+1}/{size_work}: {filename}")
+            print_or_quiet(f"Running notebook {ix+1}/{size_work}: {filename}", quiet=quiet)
 
             try:
                 ep.preprocess(nb)
-                print_or_quiet(f"Done {filename}.\n")
+                print_or_quiet(f"Done {filename}.\n", quiet=quiet)
             except CellExecutionError:
                 print(f"Error executing {ix+1}/{size_work}: {filename}.\n")
                 if assequence:
@@ -85,10 +90,10 @@ def run_notebooks(
     return None
 
 
-def print_or_quiet(string: str, stfu: bool = False) -> None:
+def print_or_quiet(string: str, quiet: bool = False) -> None:
     """
-    If stfu = True, do not print.
+    If quiet = True, do not print.
     """
-    if not stfu:
+    if not quiet:
         print(string)
     return None
