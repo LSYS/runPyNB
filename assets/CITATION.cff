@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If found this software useful for your work and wish to cite it, please cite as below."
+preferred-citation:
+  authors:
+  - family-names: "Shen"
+    given-names: "Lucas"
+  title: "runPyNB: Run Jupyter notebooks in command-line and Makefiles"
+  year: 2022
+  url: "https://pypi.org/project/runpynb/"
+  repository-code: "https://github.com/LSYS/runpynb"
+  license:  MIT license
+  identifiers:
+  - description: "This is from the archived snapshot of the code, supported by Zenodo."
+    type: doi
+    value: 10.5281/zenodo.6956486
+  doi: 10.5281/zenodo.6956486
