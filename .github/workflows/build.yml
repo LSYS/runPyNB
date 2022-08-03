@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
     
-    
 jobs:
   build:
     name: Lint and test coverage
@@ -30,14 +29,80 @@ jobs:
           mypy runpynb/runpynb.py --ignore-missing-imports
           python -m pyflakes runpynb/runpynb.py
           python -m pyflakes runpynb/scripts/runpynb
-          python -m pyflakes tests/tests_runpynb
+          python -m pyflakes tests/test_runpynb.py
           black runpynb/* -l 95
           black runpynb/scripts/runpynb -l 95
           black tests/* -l 95
       - name: Generate coverage report
         run: |
-          pip install pytest coverage
+          pip install pytest coverage jupyter
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi        
           coverage run -m pytest
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v2              
+
+  build_linux:
+    name: Build ubuntu wheel for python${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.6','3.7', '3.9', '3.10']
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install pytest jupyter
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Test with pytest
+      run: |
+        pytest
+        
+  build_macOS:
+    name: Build macOS wheel for python${{ matrix.python-version }}
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.6','3.7', '3.8', '3.9', '3.10']
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install pytest jupyter
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Test with pytest
+      run: |
+        pytest
+        
+  build_windows:
+    name: Build windows wheel for python${{ matrix.python-version }}
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.7', '3.8', '3.9', '3.10']
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install pytest jupyter
+        pip install -r requirements.txt
+    - name: Test with pytest
+      run: |
+        pytest
