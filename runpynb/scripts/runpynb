@@ -33,7 +33,7 @@ PARSER.add_argument(
     "-o",
     "--output",
     action="store_true",
-    help='Creates a separate notebook with "-out"-suffix (e.g. *-out.ipynb) instead of overwriting existing file.',
+    help='Save output as a separate notebook with "-out"-suffix (e.g. *-out.ipynb) instead of overwriting existing file.',
 )
 PARSER.add_argument(
     "-v",
@@ -46,7 +46,7 @@ PARSER.add_argument(
     "--quiet",
     default=False,
     action="store_true",
-    help="Be quiet and don't print messages. Caution: Errors may not be printed.",
+    help="Be quiet and don't print messages (including run time). Caution: Does not suppress error messages",
 )
 
 ARGS = PARSER.parse_args()
