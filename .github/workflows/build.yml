@@ -13,7 +13,6 @@ jobs:
     strategy:
       matrix:
         python-version: [3.8]
-
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
@@ -33,13 +32,7 @@ jobs:
           black runpynb/* -l 95
           black runpynb/scripts/runpynb -l 95
           black tests/* -l 95
-      - name: Generate coverage report
-        run: |
-          pip install pytest coverage jupyter
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi        
-          coverage run -m pytest
-      - name: Upload Coverage to Codecov
-        uses: codecov/codecov-action@v2              
+
 
   build_linux:
     name: Build ubuntu wheel for python${{ matrix.python-version }}
