@@ -35,7 +35,7 @@ jobs:
 
 
   build_linux:
-    name: Build ubuntu wheel for python${{ matrix.python-version }}
+    name: Build ubuntu wheel
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -57,7 +57,7 @@ jobs:
         pytest
         
   build_macOS:
-    name: Build macOS wheel for python${{ matrix.python-version }}
+    name: Build macOS wheel
     runs-on: macos-latest
     strategy:
       fail-fast: false
@@ -79,7 +79,7 @@ jobs:
         pytest
         
   build_windows:
-    name: Build windows wheel for python${{ matrix.python-version }}
+    name: Build windows wheel
     runs-on: windows-latest
     strategy:
       fail-fast: false
