@@ -88,8 +88,9 @@ optional arguments:
 <br>
 [![CI](https://github.com/LSYS/runPyNB/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/LSYS/runPyNB/actions/workflows/build.yml)
 <br>
+[![CLI](https://github.com/LSYS/runPyNB/actions/workflows/cli.yml/badge.svg?branch=main)](https://github.com/LSYS/runPyNB/actions/workflows/cli.yml)
+<br>
 [![Doclinks](https://github.com/LSYS/runPyNB/actions/workflows/doclinks.yml/badge.svg?branch=main)](https://github.com/LSYS/runPyNB/actions/workflows/doclinks.yml)
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!---------------------- About --------------------->
@@ -101,7 +102,6 @@ My workflow involves using [`Jupyter notebooks`](https://jupyter.org/) to clean,
 I use this utility to run notebooks silently from the command-line and [`Makefiles`](#usage-with-makefiles) (without converting from `.ipynb` files to `.py` files). 
 
 Related packages are [`guoquan/runnb`](https://github.com/guoquan/runnb) and [`vinayak-mehta/nbcommands`](https://github.com/vinayak-mehta/nbcommands) with a planned enhancement `nbtime` to run Jupyter notebooks from command-line.
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!---------------------- Build --------------------->
