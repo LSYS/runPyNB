@@ -1,3 +1,5 @@
+<div id="top"></div> 
+
 # Run Jupyter notebooks quietly from command-line
 [![PyPI](https://img.shields.io/pypi/v/runpynb?color=brightgreen&label=PyPI)](https://pypi.org/project/runpynb/)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/lsys/runpynb)](https://github.com/LSYS/runPyNB/releases)
@@ -6,7 +8,7 @@
 <br>
 [![DOI](https://zenodo.org/badge/520408889.svg)](https://zenodo.org/badge/latestdoi/520408889)
 
-`runPyNB` is a quick and dirty utility to run (and time) Jupyter notebooks from command-line.
+`runPyNB` is a quick and dirty utility to run (and time) Jupyter notebooks from command-line and makefiles.
 
 <!------------------- Quickstart ------------------->
 ## Quickstart
@@ -15,14 +17,16 @@ Install from PyPI
 pip install runpynb
 ```
 
-General usage is: `runpynb <notebook(s)> [options]`
+General usage: `runpynb <notebook(s)> [options]` (".ipynb" not required)
 
 * `runpynb`: Run all notebooks in directory.
 
     <pre>
     $ runpynb</pre>
-    <img src="https://raw.githubusercontent.com/lsys/runpynb/main/assets/_docs/runall.gif" width="550">
-    
+    ![](https://raw.githubusercontent.com/lsys/runpynb/main/assets/_docs/runall.gif)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!------------------------ Usage ---------------------->
 ## Usage
 
@@ -30,20 +34,22 @@ General usage is: `runpynb <notebook(s)> [options]`
 
     <pre>
     $ runpynb hello.ipynb -q</pre>
-    <img src="https://raw.githubusercontent.com/lsys/runpynb/main/assets/_docs/be-quiet.gif" width="650">
+    ![](https://raw.githubusercontent.com/lsys/runpynb/main/assets/_docs/be-quiet.gif)
     
 * `runpynb <notebook(s)> -qs`: Run quietly (`-q`) as a sequence of workflow (`-s`). Errors (eg in `error.ipynb`) will break the workflow.
 
     <pre>
     $ runpynb error.ipynb hello.ipynb -qs</pre>
-    <img src="https://raw.githubusercontent.com/lsys/runpynb/main/assets/_docs/as-sequence.gif" width="650">
+    ![](https://raw.githubusercontent.com/lsys/runpynb/main/assets/_docs/as-sequence.gif)
     
 * `runpynb <notebook(s)> -o`: Save output as separate notebook (`-o`), instead of overwriting existing notebook(s).
 
     <pre>
     $ runpynb hello.ipynb -o</pre>
-    <img src="https://raw.githubusercontent.com/lsys/runpynb/main/assets/_docs/output-as-separate-notebook.gif" width="650">
+    ![](https://raw.githubusercontent.com/lsys/runpynb/main/assets/_docs/output-as-separate-notebook.gif)
     
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!---------------------- Options ---------------------->
 ## Options
 ```bash
@@ -72,6 +78,8 @@ optional arguments:
   -q, --quiet           Be quiet and don't print messages (including run
                         time). Caution: Does not suppress error messages.
 ```
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!----------------- Project status ----------------->
 ## Status
@@ -81,6 +89,8 @@ optional arguments:
 [![CI](https://github.com/LSYS/runPyNB/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/LSYS/runPyNB/actions/workflows/build.yml)
 <br>
 [![Doclinks](https://github.com/LSYS/runPyNB/actions/workflows/doclinks.yml/badge.svg?branch=main)](https://github.com/LSYS/runPyNB/actions/workflows/doclinks.yml)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!---------------------- About --------------------->
 ## More on this package
@@ -92,6 +102,8 @@ I use this utility to run notebooks silently from the command-line and [`Makefil
 
 Related packages are [`guoquan/runnb`](https://github.com/guoquan/runnb) and [`vinayak-mehta/nbcommands`](https://github.com/vinayak-mehta/nbcommands) with a planned enhancement `nbtime` to run Jupyter notebooks from command-line.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!---------------------- Build --------------------->
 ## Usage with Makefiles
 A minimal workflow where `get-data.ipynb` takes 5000 seconds to prepare `data.csv`.
@@ -100,16 +112,20 @@ And where `analyze.ipynb` uses `data.csv` to produce `output.png`.
 .DEFAULT_GOAL := output.png
 
 data.csv: get-data.ipynb
-	runpynb get-data -t 5000
+	runpynb $^ -t 5000
 	
 output.png: analyze.ipynb data.csv
 	runpynb $< 
 ```
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!----------------- Known issues ---------------->
 ## Known Issues
 * [Build fails](https://github.com/LSYS/runPyNB/runs/7627883361?check_suite_focus=true) with Python 3.6 in Windows OS.
 * Notebooks with long execution time will require the `timeout` option (eg `runpynb notebook.ipynb -t 10000`).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-------------------- License ------------------->
 ## License
