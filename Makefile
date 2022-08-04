@@ -24,6 +24,7 @@ lint:
 	black runpynb/* $(BLACK_OPTS)
 	black runpynb/scripts/runpynb $(BLACK_OPTS)
 	black tests/* $(BLACK_OPTS)
+	python ./assets/removeCR.py
 
 clean: # Purge caches and output files
 clean:	
@@ -35,7 +36,7 @@ clean:
 
 prepack: # Prepare packaging for PyPi
 prepack:
-	@rm -rf dist/
+	@rm -rf dist/ runpynb.egg-info/
 	python setup.py sdist
 	twine check dist/*
 
