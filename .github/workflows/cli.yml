@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [  '3.8' ]
+        python-version: [ '3.6','3.7', '3.8', '3.9', '3.10' ]
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install runpynb
+        python -m pip install runpynb jupyter
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test run in CL
       run: |
@@ -35,7 +35,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ '3.8' ]
+        python-version: [ '3.6','3.7', '3.8', '3.9', '3.10' ]
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -45,7 +45,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install runpynb
+        python -m pip install runpynb jupyter
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test run in CL
       run: |
@@ -66,7 +66,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install runpynb
+        python -m pip install runpynb jupyter
         pip install -r requirements.txt
     - name: Test run in CL
       run: |
