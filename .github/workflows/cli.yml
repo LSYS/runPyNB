@@ -28,5 +28,5 @@ jobs:
         python -m pip install nbconvert nbformat
     - name: Test run in CL
       run: |
-        runpynb .assets/notebooks/hello.ipynb
+        runpynb ./assets/notebooks/hello.ipynb
         
