@@ -83,6 +83,8 @@ optional arguments:
 
 <!----------------- Project status ----------------->
 ## Status
+[![Documentation Status](https://readthedocs.org/projects/runpynb/badge/?version=latest)](https://runpynb.readthedocs.io/en/latest/?badge=latest)
+<br>
 [![Tests](https://github.com/LSYS/runPyNB/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/LSYS/runPyNB/actions/workflows/tests.yml)
 [![codecov](https://codecov.io/gh/LSYS/runPyNB/branch/main/graph/badge.svg?token=ZtC2IJ07Fa)](https://codecov.io/gh/LSYS/runPyNB)
 <br>
@@ -92,6 +94,8 @@ optional arguments:
 <br>
 [![Doclinks](https://github.com/LSYS/runPyNB/actions/workflows/doclinks.yml/badge.svg?branch=main)](https://github.com/LSYS/runPyNB/actions/workflows/doclinks.yml)
 <p align="right">(<a href="#top">back to top</a>)</p>
+<br>
+
 
 <!---------------------- About --------------------->
 ## More on this package
