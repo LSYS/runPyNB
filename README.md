@@ -85,6 +85,8 @@ optional arguments:
 ## Status
 [![Documentation Status](https://readthedocs.org/projects/runpynb/badge/?version=latest)](https://runpynb.readthedocs.io/en/latest/?badge=latest)
 <br>
+[![Build Status](https://app.travis-ci.com/LSYS/runPyNB.svg?branch=main)](https://app.travis-ci.com/LSYS/runPyNB)
+<br>
 [![Tests](https://github.com/LSYS/runPyNB/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/LSYS/runPyNB/actions/workflows/tests.yml)
 [![codecov](https://codecov.io/gh/LSYS/runPyNB/branch/main/graph/badge.svg?token=ZtC2IJ07Fa)](https://codecov.io/gh/LSYS/runPyNB)
 <br>
