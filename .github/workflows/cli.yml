@@ -2,7 +2,7 @@ name: CLI  # Test and ensure script runs in cl
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "patch" ]
   pull_request:
     branches: [ "main" ]
 
