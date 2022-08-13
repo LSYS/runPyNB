@@ -12,7 +12,7 @@ if sys.version_info[0] == 3 and sys.version_info[1] >= 8 and sys.platform.starts
 
 def run_notebooks(
     notebooks: Sequence[str],
-    timeout: int = 3000,
+    timeout: int = 3600,
     ver: int = None,
     assequence: bool = False,
     output: bool = False,
@@ -26,7 +26,7 @@ def run_notebooks(
             List of notebooks to be executed. ".ipynb" extension is implied and not required.
     timeout (int)
             Threshold in seconds before cell execution timeouts and throws a cell timeout error.
-            (Default = 3000 -> 5 mins)
+            (Default = 3600 -> 1 hr)
     ver (int)
             Version of notebook to convert to and return.
             (Default is None)
@@ -52,7 +52,7 @@ def run_notebooks(
     for ix, filename in enumerate(notebooks):
         if not os.path.isfile(filename):
             filename = "".join([filename, ".ipynb"])
-        with open(filename) as f:
+        with open(filename, encoding="utf-8") as f:
             if ver:
                 nb = nbformat.read(f, as_version=ver)
             else:
