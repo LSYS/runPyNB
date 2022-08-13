@@ -20,8 +20,8 @@ PARSER.add_argument(
     "-t",
     "--timeout",
     type=int,
-    default=3000,
-    help="Seconds until a cell in the notebook timesout, which raises a Timeouterror exception (default is 3000=5 mins).",
+    default=3600,
+    help="Seconds until a cell in the notebook timesout, which raises a Timeouterror exception (default is 3600=1 hr).",
 )
 PARSER.add_argument(
     "-s",
