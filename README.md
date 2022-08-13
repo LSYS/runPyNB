@@ -2,7 +2,7 @@
 
 # Run Jupyter notebooks quietly from command-line
 [![PyPI](https://img.shields.io/pypi/v/runpynb?color=brightgreen&label=PyPI)](https://pypi.org/project/runpynb/)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/lsys/runpynb)](https://github.com/LSYS/runPyNB/releases)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/lsys/runpynb?label=Latest%20release)
 <br>
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/runpynb?label=Python%203.6%2B)](https://pypi.org/project/runpynb/)
 <br>
