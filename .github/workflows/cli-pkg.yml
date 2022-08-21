@@ -1,4 +1,4 @@
-name: CLI  # Test and ensure script runs in cl
+name: CLI-PKG # Test and ensure script runs in cl
 
 on:
   push:
