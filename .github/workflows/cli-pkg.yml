@@ -1,7 +1,6 @@
 name: CLI-PKG # Test and ensure script runs in cl
 
-on:
-  workflow_dispatch:
+on: [workflow_dispatch]
 
 jobs:
   build_linux:
