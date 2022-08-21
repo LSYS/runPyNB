@@ -1,11 +1,6 @@
 name: CLI-PKG # Test and ensure script runs in cl
 
 on:
-  push:
-    branches: [ "main", "patch" ]
-  pull_request:
-    branches: [ "main" ]
-
   workflow_dispatch:
 
 jobs:
