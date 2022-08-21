@@ -24,6 +24,9 @@ lint:
 	black runpynb/* $(BLACK_OPTS)
 	black runpynb/scripts/runpynb $(BLACK_OPTS)
 	black tests/* $(BLACK_OPTS)
+
+rmcr: # Remove carriage return in script
+rmcr:
 	python ./assets/removeCR.py
 
 clean: # Purge caches and output files
@@ -37,7 +40,9 @@ clean:
 prepack: # Prepare packaging for PyPi
 prepack:
 	@rm -rf dist/ runpynb.egg-info/
-	python setup.py sdist
+	@python setup.py sdist
+	tar -xf dist/runpynb-0.1.*.tar.gz
+	python ./assets/checkDistCR.py
 	twine check dist/*
 
 PACKAGE_FILES := build/ dist/ *.egg-info/ *.egg
