@@ -25,7 +25,7 @@ jobs:
           pip install black pyflakes mypy
       - name: Check black formatter and pyflakes
         run: |
-          mypy runpynb/runpynb.py --ignore-missing-imports
+          mypy runpynb/runpynb.py --ignore-missing-imports --implicit-optional
           python -m pyflakes runpynb/runpynb.py
           python -m pyflakes runpynb/scripts/runpynb
           python -m pyflakes tests/test_runpynb.py
