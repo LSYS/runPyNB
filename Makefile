@@ -24,6 +24,8 @@ lint:
 	black runpynb/* $(BLACK_OPTS)
 	black runpynb/scripts/runpynb $(BLACK_OPTS)
 	black tests/* $(BLACK_OPTS)
+	@echo "+ imports"
+	isort .
 
 rmcr: # Remove carriage return in script
 rmcr:
@@ -41,7 +43,7 @@ prepack: # Prepare packaging for PyPi
 prepack:
 	@rm -rf dist/ runpynb.egg-info/
 	@python setup.py sdist
-	tar -xf dist/runpynb-0.1.*.tar.gz
+	tar -xf dist/runpynb-0.2.*.tar.gz
 	python ./assets/checkDistCR.py
 	twine check dist/*
 

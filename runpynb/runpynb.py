@@ -1,10 +1,11 @@
-from typing import Sequence
+import asyncio
 import os
 import sys
+from typing import Sequence
+
 import nbformat
 from nbconvert.preprocessors import ExecutePreprocessor
 from nbconvert.preprocessors.execute import CellExecutionError
-import asyncio
 
 if sys.version_info[0] == 3 and sys.version_info[1] >= 8 and sys.platform.startswith("win"):
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())

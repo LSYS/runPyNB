@@ -1,9 +1,10 @@
-from runpynb import run_notebooks
 import io
-from contextlib import redirect_stdout
-import pytest
 import os
+from contextlib import redirect_stdout
 
+import pytest
+
+from runpynb import run_notebooks
 
 NOTEBOOKS_DIR = "assets/notebooks"
 hello_nb = os.path.join(NOTEBOOKS_DIR, "hello.ipynb")
