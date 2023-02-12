@@ -77,8 +77,8 @@ def run_notebooks(
                     filename = filename.split(".")[0]
                     filename = "".join([filename, "-out.ipynb"])
 
-                    with open(filename, mode="wt") as f:
-                        nbformat.write(nb, f)
+                with open(filename, mode="wt") as f:
+                    nbformat.write(nb, f)
     return None
 
 
