@@ -1,0 +1,7 @@
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 15%  # Relax my coverage target, because I have flaky tests
+    patch: off

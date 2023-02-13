@@ -1,2 +1,1 @@
-from runpynb.runpynb import run_notebooks
-from runpynb.runpynb import print_or_quiet
+from runpynb.runpynb import print_or_quiet, run_notebooks

@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-
 import argparse
 from datetime import datetime, timedelta
 from glob import glob
