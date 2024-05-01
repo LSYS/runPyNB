@@ -12,7 +12,7 @@ with open("README.md", "r") as fh:
 install_requires = ['nbformat', 'nbconvert']
 setup(
     name="runpynb",
-    version="0.2.0",
+    version="0.3.0",
     license='MIT',
     author="Lucas Shen",
     author_email="lucas@lucasshen.com",

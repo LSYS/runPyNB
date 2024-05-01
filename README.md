@@ -126,13 +126,6 @@ output.png: analyze.ipynb data.csv
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-<!----------------- Known issues ---------------->
-## Known Issues
-* [Build fails](https://github.com/LSYS/runPyNB/runs/7627883361?check_suite_focus=true) with Python 3.6 in Windows OS.
-* Notebooks with long execution time will require the `timeout` option (eg `runpynb notebook.ipynb -t 10000`).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-------------------- License ------------------->
 ## License
 This package is licensed under the [MIT License](https://github.com/LSYS/runPyNB/blob/main/LICENSE).

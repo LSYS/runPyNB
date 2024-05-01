@@ -65,8 +65,9 @@ def run_notebooks(
             try:
                 ep.preprocess(nb)
                 print_or_quiet(f"Done {filename}.\n", quiet=quiet)
-            except CellExecutionError:
+            except CellExecutionError as cell_error:
                 print(f"Error executing {ix+1}/{size_work}: {filename}.\n")
+                print_or_quiet(f"Error executing {filename}: {cell_error}\n", quiet=quiet)
                 if assequence:
                     sys.exit(seq_err_msg)
             except TimeoutError:
