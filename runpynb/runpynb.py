@@ -1,7 +1,7 @@
 import asyncio
 import os
 import sys
-from typing import Sequence
+from typing import Optional, Sequence
 
 import nbformat
 from nbconvert.preprocessors import ExecutePreprocessor
@@ -14,7 +14,7 @@ if sys.version_info[0] == 3 and sys.version_info[1] >= 8 and sys.platform.starts
 def run_notebooks(
     notebooks: Sequence[str],
     timeout: int = -1,
-    ver: int = None,
+    ver: Optional[int] = None,
     assequence: bool = False,
     output: bool = False,
     quiet: bool = False,
