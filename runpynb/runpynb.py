@@ -1,7 +1,7 @@
 import asyncio
 import os
 import sys
-from typing import Sequence
+from typing import Optional, Sequence
 
 import nbformat
 from nbconvert.preprocessors import ExecutePreprocessor
@@ -13,8 +13,8 @@ if sys.version_info[0] == 3 and sys.version_info[1] >= 8 and sys.platform.starts
 
 def run_notebooks(
     notebooks: Sequence[str],
-    timeout: int = 3600,
-    ver: int = None,
+    timeout: int = -1,
+    ver: Optional[int] = None,
     assequence: bool = False,
     output: bool = False,
     quiet: bool = False,
@@ -27,7 +27,7 @@ def run_notebooks(
             List of notebooks to be executed. ".ipynb" extension is implied and not required.
     timeout (int)
             Threshold in seconds before cell execution timeouts and throws a cell timeout error.
-            (Default = 3600 -> 1 hr)
+            (Default = -1 -> no limit)
     ver (int)
             Version of notebook to convert to and return.
             (Default is None)
@@ -65,8 +65,9 @@ def run_notebooks(
             try:
                 ep.preprocess(nb)
                 print_or_quiet(f"Done {filename}.\n", quiet=quiet)
-            except CellExecutionError:
+            except CellExecutionError as cell_error:
                 print(f"Error executing {ix+1}/{size_work}: {filename}.\n")
+                print_or_quiet(f"Error executing {filename}: {cell_error}\n", quiet=quiet)
                 if assequence:
                     sys.exit(seq_err_msg)
             except TimeoutError:
